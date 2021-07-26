@@ -1,18 +1,30 @@
 import matplotlib
-from matplotlib import colors
 import numpy as np
 import math
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as pl
-from matplotlib import animation 
+from argparse import ArgumentParser
+
+#--------for getting inputs x0, y0, psi, v-------
+parser = ArgumentParser()
+parser.add_argument("-x0", help="The first arg named x0")
+parser.add_argument("-y0", help="The seconed arg named y0")
+parser.add_argument("-psi", help="The seconed arg named psi")
+parser.add_argument("-v", help="The seconed arg named v")
+args = parser.parse_args()
+
+x0 = float(args.x0)
+y0 = float(args.y0)
+psi = float(args.psi)
+v = float(args.v)
+#-------------------------------------------------
 
 dt = 0.05 #[s]
 time = 0.0 #current simulation time
 simulation_time = 200 #[s]
 S_t = 0.2 # Servo delay 200 [msec]
 L = 2.728 # length of Ford Fusion car [meter]
-v = 6 # car velocity [m/s]
-K = 2 #proportion controller for look ahead [sec]
+K = 5 #proportion controller for look ahead [sec]
 Lr = K*v+L #[m] Ld required gain
 Ld = 0 #actual look ahead length
 ind = 0 #global index
@@ -30,23 +42,23 @@ cy = 0.1*cx*np.sin(cx) #define y waypoints
 
 class VehicleStates: #for create vehicle object 
 
-    def __init__(self, Xg, Yg, v, psai, delta, omega): #vehicle attributes
+    def __init__(self, Xg, Yg, v, psi, delta, omega): #vehicle attributes
         self.Xg = Xg
         self.Yg = Yg
         self.v = v
         self.delta = delta
         self.omega = omega
-        self.psai = psai
+        self.psi = psi
 
 #-----------------Pursuit Algorithm----------------------
 
 def vehicle_initial_location(states): #1 Vehicle initial conditions
-        states.Xg = 20.0 #[m]
-        states.Yg = 10.0 #[m]
-        states.v = 6 #[m/s]
+        states.Xg = x0 #[m]
+        states.Yg = y0 #[m]
+        states.v = v #[m/s]
         states.delta = 0.0 #[rad]
         states.omega = 0.0 #[rad/s]
-        states.psai = 0.0 #[rad]
+        states.psi = psi #[rad]
         return states     
 
 def closet_path_point(states): #2 finding the closes path point
@@ -109,7 +121,7 @@ def set_steering(states): #5 calculate the new required steering angle
 
     Ld = math.sqrt(dx**2 + dy**2)
 
-    states.alpha = math.atan(dy / dx) - states.psai
+    states.alpha = math.atan(dy / dx) - states.psi
 
     delta_ref = math.atan(2*L*math.sin(states.alpha) / Ld)
 
@@ -129,15 +141,15 @@ def wheel_delay(states): #6 for simulating servo dynamics
 
 def update_vehicle_position(states, delta): #7 update vehicle states every loop with this function
     states.delta = delta
-    states.psai = states.psai + dt*states.v*math.tan(states.delta)/L + white_noise(0.0174) #std of 1 deg (0.0174 rad) white noise
-    states.Xg = states.Xg + dt*states.v*math.cos(states.psai) + white_noise(0.1) #std of 0.1 meter white noise
-    states.Yg = states.Yg + dt*states.v*math.sin(states.psai) + white_noise(0.1) #std of 0.1 meter white noise
+    states.psi = states.psi + dt*states.v*math.tan(states.delta)/L + white_noise(0.0174) #std of 1 deg (0.0174 rad) white noise
+    states.Xg = states.Xg + dt*states.v*math.cos(states.psi) + white_noise(0.1) #std of 0.1 meter white noise
+    states.Yg = states.Yg + dt*states.v*math.sin(states.psi) + white_noise(0.1) #std of 0.1 meter white noise
     return states
 
 def main():#8 run the whole simulation
     global ind
     global time
-    states = VehicleStates(Xg=0.0, Yg=0.0, v=0.0, delta=0.0, omega=0.0, psai=0.0)
+    states = VehicleStates(Xg=0.0, Yg=0.0, v=0.0, delta=0.0, omega=0.0, psi=0.0)
     states = vehicle_initial_location(states)
     if ind==0:
         states = closet_path_point(states)
@@ -154,8 +166,7 @@ def main():#8 run the whole simulation
         if (time == dt):  #insert in loop just for the legend merging
             desired_path, = plt.plot(cx, cy, color = 'green')
         plt.legend([real_path, look_ahead_poinnts, desired_path], ['Real path', 'Look ahead points', 'Desired path'])
-        print(states.delta, delta_ref)
-
+    
 
 main()
 plt.title('Pure Pursuit')
