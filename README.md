@@ -21,8 +21,18 @@ Project was created with languages, libraries and versions:
 * os 
 	
 ## Program Functions
-Program Functions and their Functionality
-* a
+Program Classes and Functions and their Functionality:
+
+```
+class VehicleStates
+```
+* Creating new Vehicle object
+
+```
+def vehicle_initial_location(states)
+```
+* Initialized the Vehicle position
+
 	
 ## Setup
 To run this project:
