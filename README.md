@@ -26,45 +26,43 @@ Program Classes and Functions and their Functionality:
 ```
 class VehicleStates
 ```
-* Creating new Vehicle object
+* Creating new Vehicle object.
 
 ```
 def vehicle_initial_location(states)
 ```
-* Initialized the Vehicle position
+* Initialized the Vehicle position.
 
 
 ```
 def close_path_point(states)
 ```
-* Searching the whole path points for the closes one
-
-
+* Searching the whole path points for the closes one.
 
 ```
 def find_goal_point(states)
 ```
-* This function returns the index of goal point which the look ahead point is pointing to
+* This function returns the index of goal point which the look ahead point is pointing to.
 
 ```
 def wgite_noise(std)
 ```
-* Insert random normal distribution of white noise to heading angle
+* Insert random normal distribution of white noise to heading angle.
 
 ```
 def set_steering(states)
 ```
-* This function returns the calculating current required steering angle (delta_ref)
+* This function returns the calculating current required steering angle (delta_ref).
 
 ```
 def steady_state_bias()
 ```
-* This function insert constant steady state bias to actuator/servo wheel
+* This function insert constant steady state bias to actuator/servo wheel.
 
 ```
 def wheel_delay(states)
 ```
-* This function is supposed to simulate the wheel servo dynamics delay response 
+* This function is supposed to simulate the wheel servo dynamics delay response .
 
 ```
 def update_vehicle_position(states, delta)
@@ -74,17 +72,21 @@ def update_vehicle_position(states, delta)
 ```
 class LidarDataSet
 ```
-* This class creates new Lidar object, which supposed to simulate inputs from Lidar, and convert them to sets of dataset, which after, help us to make the more robust tracking
+* This class creates new Lidar object, which supposed to simulate inputs from Lidar, and convert them to sets of dataset, which after, help us to make the more robust tracking.
 
 ```
 def lidar(dataset1, dataset2)
 ```
-* 
+* This function is supposed to simulate doppler effect filter, which returns only the stationary points.
 
 ```
 def kalman_filter(states)
 ```
-* 
+* This function supposed to simulate the Kalman Filter Algorithm, 
+that uses a series of measurements observed over time, 
+containing statistical noise and other inaccuracies,
+and produces estimates of unknown variables (our states)
+that tend to be more accurate than those based on a single measurement alone.
 
 ```
 def main(states)
