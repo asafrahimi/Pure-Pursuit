@@ -1,6 +1,6 @@
 ## Pure-Pursuit Algorithm
 * [General info](#general-info)
-* [Technologies](#technologie)
+* [Technologies](#technologies)
 * [Setup](#setup)
 
 ## General info
