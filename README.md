@@ -57,7 +57,22 @@ def set_steering(states)
 * This function returns the calculating current required steering angle (delta_ref)
 
 ```
-def (states)
+def steady_state_bias()
+```
+* This function insert constant steady state bias to actuator/servo wheel
+
+```
+def wheel_delay(states)
+```
+* This function is supposed to simulate the wheel servo dynamics delay response 
+
+```
+def update_vehicle_position(states, delta):
+```
+* This function is going to update the vehicle position states with every simulation iteration.
+
+```
+class LidarDataSet:
 ```
 * 
 
@@ -70,13 +85,6 @@ def (states)
 def (states)
 ```
 * 
-
-```
-def (states)
-```
-* 
-
-
 
 ## Setup
 To run this project:
