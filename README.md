@@ -67,24 +67,30 @@ def wheel_delay(states)
 * This function is supposed to simulate the wheel servo dynamics delay response 
 
 ```
-def update_vehicle_position(states, delta):
+def update_vehicle_position(states, delta)
 ```
 * This function is going to update the vehicle position states with every simulation iteration.
 
 ```
-class LidarDataSet:
+class LidarDataSet
+```
+* This class creates new Lidar object, which supposed to simulate inputs from Lidar, and convert them to sets of dataset, which after, help us to make the more robust tracking
+
+```
+def lidar(dataset1, dataset2)
 ```
 * 
 
 ```
-def (states)
+def kalman_filter(states)
 ```
 * 
 
 ```
-def (states)
+def main(states)
 ```
-* 
+* This function run the whole simulation functions.
+
 
 ## Setup
 To run this project:
