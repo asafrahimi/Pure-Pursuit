@@ -33,6 +33,11 @@ def vehicle_initial_location(states)
 ```
 * Initialized the Vehicle position
 
+
+```
+def close_path_point(states)
+```
+* Searching the whole path points for the closes one
 	
 ## Setup
 To run this project:
