@@ -1,7 +1,7 @@
 ## Pure-Pursuit Algorithm
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Program Functions](#Program Functions)
+* [Program Functions](#Program-Functions)
 * [Setup](#setup)
 
 ## General info
