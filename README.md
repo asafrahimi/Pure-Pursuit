@@ -44,7 +44,17 @@ def close_path_point(states)
 ```
 def find_goal_point(states)
 ```
-* This function return the index of goal point which the look ahead point is pointing to
+* This function returns the index of goal point which the look ahead point is pointing to
+
+```
+def wgite_noise(std)
+```
+* Insert random normal distribution of white noise to heading angle
+
+```
+def set_steering(states)
+```
+* This function returns the calculating current required steering angle (delta_ref)
 
 ```
 def (states)
@@ -54,7 +64,19 @@ def (states)
 ```
 def (states)
 ```
-*
+* 
+
+```
+def (states)
+```
+* 
+
+```
+def (states)
+```
+* 
+
+
 
 ## Setup
 To run this project:
