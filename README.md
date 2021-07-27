@@ -38,7 +38,24 @@ def vehicle_initial_location(states)
 def close_path_point(states)
 ```
 * Searching the whole path points for the closes one
-	
+
+
+
+```
+def find_goal_point(states)
+```
+* This function return the index of goal point which the look ahead point is pointing to
+
+```
+def (states)
+```
+* 
+
+```
+def (states)
+```
+*
+
 ## Setup
 To run this project:
 * Use the next command for each main_* respectively and only from version main_04 and above.
