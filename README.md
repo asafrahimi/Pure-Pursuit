@@ -1,4 +1,4 @@
-## Pure-Pursuit Algorithm
+# Pure-Pursuit Algorithm
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Program Functions](#Program-Functions)
