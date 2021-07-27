@@ -1,6 +1,7 @@
 ## Pure-Pursuit Algorithm
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [Program Functions](#Program Functions)
 * [Setup](#setup)
 
 ## General info
@@ -8,7 +9,8 @@ Pure pursuit is a tracking algorithm that works by calculating the curvature tha
 The whole point of the algorithm is to choose a goal position that is some distance ahead of the vehicle on the path..
 	
 ## Technologies
-Project is created with Python version 3.9.6 and Libraries:
+Project was created with languages, libraries and versions:
+* Python version 3.9.6
 * matplotlib
 * numpy as np
 * math
@@ -17,6 +19,10 @@ Project is created with Python version 3.9.6 and Libraries:
 * ArgumentParser
 * csv
 * os 
+	
+## Program Functions
+Program Functions and their Functionality
+* a
 	
 ## Setup
 To run this project:
